@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,9 +15,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -60,7 +65,7 @@ class MainActivity : ComponentActivity() {
                             painter = painterResource(id = R.drawable.illustration),
                             contentDescription = "Sign Up Illustration",
                             modifier = Modifier.fillMaxWidth() //genişleyebildiği kadar genişlesin
-                                .height(250.dp)
+                                .height(200.dp)
                         )
 
                         Spacer(modifier =  Modifier.height(32.dp))
@@ -69,7 +74,7 @@ class MainActivity : ComponentActivity() {
                         Text(
                             "Sign Up",
                             style = TextStyle(
-                                fontSize = 40.sp,
+                                fontSize = 30.sp,
                                 fontWeight = FontWeight.SemiBold,
                                 color = Color.Black
                             ),
@@ -180,6 +185,40 @@ class MainActivity : ComponentActivity() {
 
                             }
                         )
+
+                        // TEXT
+                        Spacer(modifier= Modifier.height(5.dp))
+
+                        Text(text = "By Signing up, you're agree to our Term & Conditions and Privacy Policy",
+                            fontSize = 14.sp,
+                            color = Color.Black,
+                            modifier = Modifier.fillMaxWidth().padding(20.dp)
+                        )
+
+                        //BUTTON
+                        Button(onClick = {},
+                            modifier = Modifier.fillMaxWidth()
+                                .height(48.dp),
+                            colors = ButtonDefaults.buttonColors(Color(red = 100, green = 252, blue = 217))
+                        ) {
+                            Text("Continue", color = Color.Black, fontSize = 16.sp)
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        Row(
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ){
+                            Text("Joined before?", color = Color.Black, fontSize = 14.sp)
+                            TextButton(onClick = {
+                                //navigation (login ekranına git)
+                            }) {
+                                Text("Login", color = Color.Black, fontSize = 14.sp)
+                            }
+
+                        }
 
                     }
                 }
